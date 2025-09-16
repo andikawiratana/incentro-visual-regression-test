@@ -31,8 +31,7 @@ const generateSnapshot = async (url:string, directoryOutput:string = 'result') =
   const page = await browser.newPage();
   await page.goto(url, {waitUntil: "networkidle"});
   await context.clearCookies();
-  await context.clearCookies({ domain: '127.0.0.1:3000' });
-  await context.clearCookies({ domain: 'incentro.com' });
+  await context.clearCookies({ domain: url });
 
   // hide cookie dialog
   const cookieDialog: Locator = page.locator('div.ch2.ch2-region-g0');
